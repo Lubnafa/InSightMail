@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  insightmail:
+    build: .
+    container_name: insightmail-app
+    ports:
+      - "8000:8000"  # FastAPI backend
+      - "8501:8501"  # Streamlit frontend
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    environment:
+      - DATABASE_URL=sqlite:///data/insightmail.db
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - CHROMA_PERSIST_DIRECTORY=data/embeddings
+    depends_on:
+      - ollama
+    networks:
+      - insightmail-network
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: insightmail-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    environment:
+      - OLLAMA_ORIGINS=*
+    networks:
+      - insightmail-network
+    restart: unless-stopped
+    # Optional: GPU support (uncomment if you have NVIDIA GPU)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  # Optional: Model initialization service
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: insightmail-ollama-init
+    depends_on:
+      - ollama
+    networks:
+      - insightmail-network
+    volumes:
+      - ollama-models:/root/.ollama
+    entrypoint: |
+      sh -c "
+        echo 'Waiting for Ollama to be ready...'
+        sleep 10
+        echo 'Pulling Mistral model...'
+        ollama pull mistral:7b
+        echo 'Pulling Phi-3 mini model as backup...'
+        ollama pull phi3:mini
+        echo 'Models ready!'
+      "
+    restart: "no"
+
+volumes:
+  ollama-models:
+    driver: local
+
+networks:
+  insightmail-network:
+    driver: bridge

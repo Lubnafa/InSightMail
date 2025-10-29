@@ -1,0 +1,276 @@
+{
+  "messages": [
+    {
+      "id": "msg001",
+      "threadId": "thread001",
+      "labelIds": ["INBOX", "IMPORTANT"],
+      "snippet": "Thank you for your interest in the Software Engineer position at TechCorp. We have received your application and will review it within the next 5-7 business days.",
+      "sizeEstimate": 2847,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Application Received - Software Engineer Position"
+          },
+          {
+            "name": "From",
+            "value": "HR Team <hr@techcorp.com>"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Mon, 15 Oct 2024 10:30:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg001@techcorp.com>"
+          }
+        ],
+        "body": {
+          "data": "VGhhbmsgeW91IGZvciB5b3VyIGludGVyZXN0IGluIHRoZSBTb2Z0d2FyZSBFbmdpbmVlciBwb3NpdGlvbiBhdCBUZWNoQ29ycC4gV2UgaGF2ZSByZWNlaXZlZCB5b3VyIGFwcGxpY2F0aW9uIGFuZCB3aWxsIHJldmlldyBpdCB3aXRoaW4gdGhlIG5leHQgNS03IGJ1c2luZXNzIGRheXMu"
+        }
+      }
+    },
+    {
+      "id": "msg002",
+      "threadId": "thread002",
+      "labelIds": ["INBOX"],
+      "snippet": "Hi John, I hope this email finds you well. I'm Jane Smith, a Senior Technical Recruiter at InnovateAI. I came across your profile and I'm impressed with your background in machine learning.",
+      "sizeEstimate": 3421,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Exciting Opportunity - Senior ML Engineer at InnovateAI"
+          },
+          {
+            "name": "From",
+            "value": "Jane Smith <jane.smith@innovateai.com>"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Wed, 17 Oct 2024 14:20:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg002@innovateai.com>"
+          }
+        ],
+        "body": {
+          "data": "SGkgSm9obiwgSSBob3BlIHRoaXMgZW1haWwgZmluZHMgeW91IHdlbGwuIEknbSBKYW5lIFNtaXRoLCBhIFNlbmlvciBUZWNobmljYWwgUmVjcnVpdGVyIGF0IElubm92YXRlQUkuIEkgY2FtZSBhY3Jvc3MgeW91ciBwcm9maWxlIGFuZCBJJ20gaW1wcmVzc2VkIHdpdGggeW91ciBiYWNrZ3JvdW5kIGluIG1hY2hpbmUgbGVhcm5pbmcu"
+        }
+      }
+    },
+    {
+      "id": "msg003",
+      "threadId": "thread003",
+      "labelIds": ["INBOX", "STARRED"],
+      "snippet": "Congratulations! We are delighted to extend an offer for the Senior Developer position at StartupXYZ. Your interview performance was outstanding and we believe you'll be a great addition.",
+      "sizeEstimate": 4156,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Job Offer - Senior Developer Position"
+          },
+          {
+            "name": "From",
+            "value": "Sarah Johnson <sarah@startupxyz.com>"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Fri, 19 Oct 2024 16:45:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg003@startupxyz.com>"
+          }
+        ],
+        "body": {
+          "data": "Q29uZ3JhdHVsYXRpb25zISBXZSBhcmUgZGVsaWdodGVkIHRvIGV4dGVuZCBhbiBvZmZlciBmb3IgdGhlIFNlbmlvciBEZXZlbG9wZXIgcG9zaXRpb24gYXQgU3RhcnR1cFhZWi4gWW91ciBpbnRlcnZpZXcgcGVyZm9ybWFuY2Ugd2FzIG91dHN0YW5kaW5nIGFuZCB3ZSBiZWxpZXZlIHlvdSdsbCBiZSBhIGdyZWF0IGFkZGl0aW9uLg=="
+        }
+      }
+    },
+    {
+      "id": "msg004",
+      "threadId": "thread004",
+      "labelIds": ["INBOX"],
+      "snippet": "Thank you for your interest in the Data Scientist role at BigTech Corp. After careful consideration, we have decided to move forward with other candidates whose experience more closely aligns.",
+      "sizeEstimate": 2193,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Update on Your Data Scientist Application"
+          },
+          {
+            "name": "From",
+            "value": "Recruiting Team <recruiting@bigtechcorp.com>"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Mon, 21 Oct 2024 09:15:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg004@bigtechcorp.com>"
+          }
+        ],
+        "body": {
+          "data": "VGhhbmsgeW91IGZvciB5b3VyIGludGVyZXN0IGluIHRoZSBEYXRhIFNjaWVudGlzdCByb2xlIGF0IEJpZ1RlY2ggQ29ycC4gQWZ0ZXIgY2FyZWZ1bCBjb25zaWRlcmF0aW9uLCB3ZSBoYXZlIGRlY2lkZWQgdG8gbW92ZSBmb3J3YXJkIHdpdGggb3RoZXIgY2FuZGlkYXRlcyB3aG9zZSBleHBlcmllbmNlIG1vcmUgY2xvc2VseSBhbGlnbnMu"
+        }
+      }
+    },
+    {
+      "id": "msg005",
+      "threadId": "thread005",
+      "labelIds": ["INBOX", "IMPORTANT"],
+      "snippet": "Hi there! We would like to schedule a technical interview for the Full Stack Developer position. Are you available for a video call this Thursday or Friday afternoon?",
+      "sizeEstimate": 3087,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Interview Invitation - Full Stack Developer"
+          },
+          {
+            "name": "From",
+            "value": "Mike Chen <mike@webdevstudio.com>"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Tue, 22 Oct 2024 11:30:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg005@webdevstudio.com>"
+          }
+        ],
+        "body": {
+          "data": "SGkgdGhlcmUhIFdlIHdvdWxkIGxpa2UgdG8gc2NoZWR1bGUgYSB0ZWNobmljYWwgaW50ZXJ2aWV3IGZvciB0aGUgRnVsbCBTdGFjayBEZXZlbG9wZXIgcG9zaXRpb24uIEFyZSB5b3UgYXZhaWxhYmxlIGZvciBhIHZpZGVvIGNhbGwgdGhpcyBUaHVyc2RheSBvciBGcmlkYXkgYWZ0ZXJub29uPw=="
+        }
+      }
+    },
+    {
+      "id": "msg006",
+      "threadId": "thread006",
+      "labelIds": ["INBOX"],
+      "snippet": "Thank you for taking the time to interview with us last week for the Backend Engineer position. We were impressed with your technical skills and problem-solving approach.",
+      "sizeEstimate": 2756,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Follow-up: Backend Engineer Interview"
+          },
+          {
+            "name": "From",
+            "value": "Lisa Wang <lisa@cloudservices.io>"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Thu, 24 Oct 2024 13:45:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg006@cloudservices.io>"
+          }
+        ],
+        "body": {
+          "data": "VGhhbmsgeW91IGZvciB0YWtpbmcgdGhlIHRpbWUgdG8gaW50ZXJ2aWV3IHdpdGggdXMgbGFzdCB3ZWVrIGZvciB0aGUgQmFja2VuZCBFbmdpbmVlciBwb3NpdGlvbi4gV2Ugd2VyZSBpbXByZXNzZWQgd2l0aCB5b3VyIHRlY2huaWNhbCBza2lsbHMgYW5kIHByb2JsZW0tc29sdmluZyBhcHByb2FjaC4="
+        }
+      }
+    },
+    {
+      "id": "msg007",
+      "threadId": "thread007",
+      "labelIds": ["INBOX"],
+      "snippet": "Your application for the Python Developer role has been received and is currently under review. We appreciate your interest in joining our team at FinTech Solutions.",
+      "sizeEstimate": 1987,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Application Confirmation - Python Developer"
+          },
+          {
+            "name": "From",
+            "value": "noreply@fintechsolutions.com"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Sat, 26 Oct 2024 08:20:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg007@fintechsolutions.com>"
+          }
+        ],
+        "body": {
+          "data": "WW91ciBhcHBsaWNhdGlvbiBmb3IgdGhlIFB5dGhvbiBEZXZlbG9wZXIgcm9sZSBoYXMgYmVlbiByZWNlaXZlZCBhbmQgaXMgY3VycmVudGx5IHVuZGVyIHJldmlldy4gV2UgYXBwcmVjaWF0ZSB5b3VyIGludGVyZXN0IGluIGpvaW5pbmcgb3VyIHRlYW0gYXQgRmluVGVjaCBTb2x1dGlvbnMu"
+        }
+      }
+    },
+    {
+      "id": "msg008",
+      "threadId": "thread008",
+      "labelIds": ["INBOX", "STARRED"],
+      "snippet": "I hope you're doing well! I wanted to reach out regarding an exciting opportunity at Google. We have an opening for a Senior Software Engineer that might interest you.",
+      "sizeEstimate": 3654,
+      "payload": {
+        "headers": [
+          {
+            "name": "Subject",
+            "value": "Opportunity at Google - Senior Software Engineer"
+          },
+          {
+            "name": "From",
+            "value": "Alex Rodriguez <alex.r@google.com>"
+          },
+          {
+            "name": "To",
+            "value": "jobseeker@gmail.com"
+          },
+          {
+            "name": "Date",
+            "value": "Mon, 28 Oct 2024 15:10:00 -0700"
+          },
+          {
+            "name": "Message-ID",
+            "value": "<msg008@google.com>"
+          }
+        ],
+        "body": {
+          "data": "SSBob3BlIHlvdSdyZSBkb2luZyB3ZWxsISBJIHdhbnRlZCB0byByZWFjaCBvdXQgcmVnYXJkaW5nIGFuIGV4Y2l0aW5nIG9wcG9ydHVuaXR5IGF0IEdvb2dsZS4gV2UgaGF2ZSBhbiBvcGVuaW5nIGZvciBhIFNlbmlvciBTb2Z0d2FyZSBFbmdpbmVlciB0aGF0IG1pZ2h0IGludGVyZXN0IHlvdS4="
+        }
+      }
+    }
+  ]
+}

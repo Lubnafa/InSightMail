@@ -1,0 +1,51 @@
+Return-Path: <noreply@megacorp.com>
+Delivered-To: jobseeker@gmail.com
+Received: by gmail.com with SMTP id xyz789
+        for <jobseeker@gmail.com>; Fri, 1 Nov 2024 14:30:00 -0700 (PDT)
+Message-ID: <rejection001@megacorp.com>
+Date: Fri, 1 Nov 2024 14:30:00 -0700
+From: Talent Acquisition Team <noreply@megacorp.com>
+To: jobseeker@gmail.com
+Subject: Thank you for your interest - Software Engineer Position
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Application Update</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2 style="color: #2c3e50;">Thank you for your interest in MegaCorp</h2>
+        
+        <p>Dear Candidate,</p>
+        
+        <p>Thank you for taking the time to apply for the <strong>Software Engineer</strong> position at MegaCorp and for your interest in joining our team.</p>
+        
+        <p>After careful review of your application and consideration of all candidates, we have decided to move forward with other applicants whose experience and skills more closely align with our current needs for this particular role.</p>
+        
+        <p>We were impressed by your background and encourage you to apply for future opportunities that may be a better match for your skills and career goals. We will keep your resume on file and may reach out if a suitable position becomes available.</p>
+        
+        <p>We appreciate the time you invested in the application process and wish you the best of luck in your job search.</p>
+        
+        <p>Thank you again for your interest in MegaCorp.</p>
+        
+        <br>
+        <p>Best regards,<br>
+        <strong>Talent Acquisition Team</strong><br>
+        MegaCorp Technologies<br>
+        <a href="mailto:careers@megacorp.com">careers@megacorp.com</a><br>
+        <a href="https://megacorp.com/careers">megacorp.com/careers</a></p>
+        
+        <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+        
+        <p style="font-size: 12px; color: #666;">
+            This email was sent from an unmonitored email address. Please do not reply to this email.
+            If you have questions about your application, please visit our careers page.
+        </p>
+    </div>
+</body>
+</html>
