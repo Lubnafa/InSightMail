@@ -1,320 +1,354 @@
 # InSightMail 📧
 
-**Your AI-powered job search email copilot that runs 100% locally**
+> **Your AI-powered job search copilot that runs 100% locally**
 
-InSightMail connects to multiple Gmail accounts, automatically classifies job-related emails using local LLMs, and provides intelligent insights into your hiring progress through an intuitive dashboard.
+Transform your job search chaos into organized insights. InSightMail automatically processes your Gmail exports, classifies job-related emails using local AI, and provides intelligent analytics about your hiring progress—all while keeping your data private on your own machine.
 
-## ✨ Features
+---
 
-- 🤖 **Local AI Processing**: Uses Ollama (Mistral/Phi-3) for 100% local, zero-cost LLM inference
-- 📧 **Multi-Account Gmail Integration**: Process emails from multiple Gmail accounts
-- 🏷️ **Smart Email Classification**: Automatically categorizes emails as:
-  - Application Sent
-  - Recruiter Response  
-  - Interview
-  - Offer
-  - Rejection
-  - Other
-- 🔍 **Ask My Inbox**: RAG-powered natural language search through your emails
-- 📊 **Job Pipeline Dashboard**: Visual tracking of your application progress
-- 📈 **Analytics & Insights**: Detailed analytics on response rates, timing, and trends
-- 🚀 **Zero Cost**: No paid APIs required - runs entirely on your local machine
+## 🎯 Why InSightMail?
 
-## 🏗️ Architecture
+**The Problem**: Job searching generates hundreds of emails across multiple platforms. Tracking which companies responded, when to follow up, and analyzing your success rates becomes overwhelming.
 
+**The Solution**: InSightMail uses local AI to automatically organize your job search emails, providing clear insights into your application pipeline without compromising your privacy or costing you money.
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🤖 **100% Local AI** | Uses Ollama (Mistral/Phi-3) - no cloud APIs, no costs, complete privacy |
+| 📧 **Multi-Account Support** | Process emails from multiple Gmail accounts simultaneously |
+| 🎯 **Smart Classification** | Auto-categorizes emails: Applications • Recruiter Outreach • Interviews • Offers • Rejections |
+| 🔍 **AI-Powered Search** | "Ask My Inbox" - natural language queries across your entire email history |
+| 📊 **Visual Analytics** | Interactive dashboards showing pipeline conversion, response rates, and trends |
+| ⚡ **Real-time Processing** | Background processing with live updates as emails are analyzed |
+| 🔒 **Privacy First** | All processing happens locally - your emails never leave your machine |
+
+## 🏗️ Technical Architecture
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Streamlit     │───▶│     FastAPI     │───▶│     Ollama      │
+│   Frontend      │    │     Backend     │    │   Local LLM     │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         │                       ▼                       │
+         │              ┌─────────────────┐              │
+         │              │     SQLite      │              │
+         │              │   Database      │              │
+         │              └─────────────────┘              │
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 ▼
+                        ┌─────────────────┐
+                        │    ChromaDB     │
+                        │  Vector Store   │
+                        └─────────────────┘
+```
+
+**Core Technologies:**
 - **Backend**: FastAPI with async processing
-- **Frontend**: Streamlit dashboard with interactive components
-- **Database**: SQLite for email storage
-- **Vector DB**: ChromaDB for semantic search
+- **Frontend**: Streamlit with interactive components  
+- **Database**: SQLite for structured data
+- **Vector Search**: ChromaDB for semantic similarity
 - **LLM**: Ollama (local inference)
 - **Embeddings**: SentenceTransformers
-- **Orchestration**: Custom pipeline (no LangChain dependency)
+- **Email Processing**: Custom parsers for JSON/EML/MBOX formats
 
 ## 🚀 Quick Start
 
-### Prerequisites
+Get InSightMail running in under 5 minutes:
 
-1. **Install Ollama** ([ollama.ai](https://ollama.ai))
-   ```bash
-   # Install Ollama, then pull a model
-   ollama pull mistral:7b
-   # or
-   ollama pull phi3:mini
-   ```
+### 1️⃣ Prerequisites
 
-2. **Python 3.9+** with pip
+```bash
+# 1. Install Ollama (https://ollama.ai)
+# Download and install Ollama for your platform
 
-### Installation
+# 2. Pull an AI model (choose one)
+ollama pull mistral:7b      # Recommended: Best performance
+ollama pull phi3:mini       # Alternative: Fastest, good for lower-end hardware
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/InSightMail.git
-   cd InSightMail
-   ```
+# 3. Verify installation
+ollama list                 # Should show your downloaded model
+```
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+**Requirements**: Python 3.9+ and Ollama
 
-3. **Set up environment** (optional)
-   ```bash
-   cp env.example .env
-   # Edit .env with your preferences
-   ```
+### 2️⃣ Install InSightMail
 
-4. **Initialize the database**
-   ```bash
-   cd backend
-   python -c "from db import db_manager; db_manager.create_tables()"
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/InSightMail.git
+cd InSightMail
 
-### Running the Application
+# Install Python dependencies
+pip install -r requirements.txt
 
-1. **Start the backend API**
-   ```bash
-   cd backend
-   python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
-   ```
+# Initialize the database
+cd backend
+python -c "from db import db_manager; db_manager.create_tables()"
+```
 
-2. **Start the frontend dashboard** (in a new terminal)
-   ```bash
-   cd frontend
-   streamlit run app.py --server.port 8501
-   ```
+### 3️⃣ Start the Application
 
-3. **Open your browser**
-   - Dashboard: http://localhost:8501
-   - API Docs: http://localhost:8000/docs
+```bash
+# Terminal 1: Start the backend API
+cd backend
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+# Terminal 2: Start the frontend dashboard
+cd frontend
+streamlit run app.py --server.port 8501
+```
+
+### 4️⃣ Access InSightMail
+
+Open your browser and navigate to:
+- 🖥️ **Dashboard**: http://localhost:8501
+- 📚 **API Docs**: http://localhost:8000/docs
+
+### 5️⃣ Try It Out
+
+1. **Load Sample Data**: Upload `data/samples/sample_gmail.json` via the Email Upload page
+2. **Explore Dashboard**: View your job pipeline and analytics
+3. **Search Emails**: Try "Ask My Inbox" with queries like "Show me interview emails"
+
+---
 
 ## 📧 Getting Your Gmail Data
 
-### Method 1: Google Takeout (Recommended)
+InSightMail supports multiple ways to import your job search emails:
 
-1. Go to [Google Takeout](https://takeout.google.com)
-2. Select "Mail"
-3. Choose format: "All messages included" 
-4. Export format: `.mbox` or individual `.eml` files
-5. Download and extract
+### 🥇 Google Takeout (Easiest)
 
-### Method 2: Gmail Search Export
+1. Visit [Google Takeout](https://takeout.google.com)
+2. Select **"Mail"** → Choose **"All messages included"**
+3. Export as **JSON** or **EML** format
+4. Download and extract the files
 
-1. In Gmail, search: `(recruiter OR interview OR application OR offer OR job OR hiring)`
-2. Use a browser extension to export as JSON/EML
-3. Save the exported files
+### 🔍 Gmail Search Export (Targeted)
 
-### Method 3: Gmail API (Advanced)
+1. In Gmail, use this search: `(recruiter OR interview OR application OR offer OR job OR hiring)`
+2. Export results using a browser extension (like "Email Extractor")
+3. Save as JSON or EML files
 
-1. Set up Gmail API credentials in Google Cloud Console
-2. Configure `GMAIL_CLIENT_ID` and `GMAIL_CLIENT_SECRET` in your environment
-3. Use the built-in Gmail API integration
+### ⚙️ Gmail API (Advanced Users)
 
-## 📱 Usage
+Set up Gmail API credentials and use the built-in integration for real-time sync.
 
-### Upload & Process Emails
+---
 
-1. Navigate to **"Email Upload"** in the sidebar
-2. Enter your Gmail account email
-3. Upload your exported Gmail files (JSON, EML, MBOX)
-4. Wait for AI processing to complete
+## 📱 How to Use InSightMail
 
-### View Your Job Pipeline
+### 📤 Upload & Process Emails
 
-1. Go to **"Job Pipeline"** to see your application progress
-2. Track emails through each stage: Applied → Response → Interview → Offer
-3. View conversion rates and identify follow-up opportunities
+1. **Navigate** to "Email Upload" in the sidebar
+2. **Enter** your Gmail account email (e.g., `your.email@gmail.com`)
+3. **Upload** your exported files (supports JSON, EML, MBOX formats)
+4. **Wait** for AI processing (progress shown in real-time)
 
-### Search Your Inbox
+### 📊 View Your Job Pipeline
 
-1. Use **"Ask My Inbox"** for natural language queries:
-   - "How many interviews did I have this month?"
-   - "Show me all rejection emails from tech companies"
-   - "Which applications need follow-up?"
+- **Track Progress**: See emails flow through: Applied → Response → Interview → Offer
+- **Conversion Rates**: Understand your success rates at each stage  
+- **Follow-up Opportunities**: Identify applications that need attention
 
-### Analytics & Insights
+### 🔍 Search Your Inbox
 
-1. Visit **"Analytics"** for detailed insights:
-   - Response rates and conversion metrics
-   - Timeline analysis and activity patterns
-   - Company-specific engagement scores
-   - Predictive insights and recommendations
+Use **"Ask My Inbox"** with natural language:
 
-## 🔧 Configuration
+> *"How many interviews did I have this month?"*  
+> *"Show me rejection emails from tech companies"*  
+> *"Which applications haven't received responses?"*  
+> *"Find all emails about remote positions"*
+
+### 📈 Analytics & Insights
+
+Get actionable intelligence:
+- **Response Rates**: Track which strategies work best
+- **Timeline Analysis**: Understand hiring patterns and optimal timing
+- **Company Insights**: See which employers are most responsive
+- **Performance Trends**: Monitor improvement over time
+
+## ⚙️ Configuration
+
+### Model Selection
+
+Choose the right AI model for your hardware:
+
+| Model | Performance | Speed | Memory | Best For |
+|-------|-------------|-------|---------|----------|
+| `mistral:7b` | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | 8GB+ | **Recommended**: Best accuracy |
+| `phi3:mini` | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | 4GB+ | Fast processing, lower-end hardware |
+| `llama3.2:3b` | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 6GB+ | Good balance |
+
+```bash
+# Switch models anytime
+ollama pull phi3:mini
+# Update your .env file or restart with new model
+```
 
 ### Environment Variables
 
-Key settings in `env.example`:
+Copy `env.example` to `.env` and customize:
 
 ```bash
-# LLM Configuration
+# LLM Configuration  
 OLLAMA_MODEL=mistral:7b              # Primary model
-OLLAMA_BACKUP_MODEL=phi3:mini        # Fallback model
+OLLAMA_BACKUP_MODEL=phi3:mini        # Fallback if primary fails
 
 # Database
 DATABASE_URL=sqlite:///data/insightmail.db
 
-# Embedding Model
-EMBEDDING_MODEL=all-MiniLM-L6-v2     # Lightweight, fast
-# EMBEDDING_MODEL=intfloat/e5-small  # Alternative option
+# Embeddings (for search)
+EMBEDDING_MODEL=all-MiniLM-L6-v2     # Lightweight and fast
 ```
 
-### Model Options
+## 🧪 Testing & Validation
 
-**Recommended Models:**
-- `mistral:7b` - Best balance of performance and speed
-- `phi3:mini` - Fastest, good for lower-end hardware  
-- `llama3.2:3b` - Good alternative
-
-Pull models with: `ollama pull model-name`
-
-## 🧪 Testing
-
-Run the test suite:
+### Quick Test with Sample Data
 
 ```bash
-# Install test dependencies
-pip install pytest pytest-asyncio
-
-# Run all tests
-pytest tests/
-
-# Run specific test files
-pytest tests/test_parser.py
-pytest tests/test_rag.py
-pytest tests/test_llm.py
-```
-
-## 📊 Sample Data
-
-The `data/samples/` directory contains example Gmail exports for testing:
-
-```bash
-# Load sample data
+# Use included sample data to verify everything works
 cd backend
 python -c "
 from email_parser import EmailParser
 parser = EmailParser()
 emails = parser.batch_parse_files(['../data/samples/sample_gmail.json'], 'demo@gmail.com')
-print(f'Loaded {len(emails)} sample emails')
+print(f'✅ Loaded {len(emails)} sample emails')
 "
+```
+
+### Run Test Suite
+
+```bash
+# Install test dependencies
+pip install pytest pytest-asyncio
+
+# Run all tests  
+pytest tests/ -v
+
+# Test specific components
+pytest tests/test_parser.py    # Email parsing
+pytest tests/test_rag.py       # Search functionality  
+pytest tests/test_llm.py       # AI classification
 ```
 
 ## 🐳 Docker Deployment
 
-```bash
-# Build the image
-docker build -t insightmail .
+Deploy with Docker for easy setup:
 
-# Run with Docker Compose
+```bash
+# Quick deployment
 docker-compose up -d
+
+# Manual build  
+docker build -t insightmail .
+docker run -p 8501:8501 -p 8000:8000 insightmail
 
 # Access the application
 # Dashboard: http://localhost:8501
 # API: http://localhost:8000
 ```
 
-## 🔍 API Reference
+## 🔌 API Reference
 
-### Key Endpoints
+InSightMail provides a comprehensive REST API:
 
-- `GET /health` - System health check
-- `POST /emails/upload` - Upload Gmail export files
-- `GET /emails` - List processed emails with filtering
-- `POST /query` - RAG-powered email search
-- `GET /stats` - Pipeline statistics
-- `GET /summary` - AI-generated inbox summary
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | System status and health check |
+| `/emails/upload` | POST | Upload Gmail export files |
+| `/emails` | GET | List processed emails with filters |
+| `/query` | POST | RAG-powered natural language search |
+| `/stats` | GET | Job pipeline statistics |
+| `/summary` | GET | AI-generated inbox insights |
 
-Full API documentation: http://localhost:8000/docs
+**Interactive Documentation**: http://localhost:8000/docs
 
-## 🛠️ Development
-
-### Project Structure
+## 🛠️ Project Structure
 
 ```
-insightmail/
-├── backend/                 # FastAPI backend
-│   ├── main.py             # API routes
-│   ├── db.py               # Database models  
-│   ├── email_parser.py     # Gmail export parsing
-│   ├── llm_adapter.py      # Ollama interface
-│   ├── rag_pipeline.py     # Vector search & retrieval
-│   ├── summarizer_chain.py # LLM classification pipeline
-│   └── utils.py            # Utility functions
-├── frontend/               # Streamlit dashboard
-│   ├── app.py              # Main dashboard
-│   └── components/         # UI components
-├── tests/                  # Test suite
-├── data/                   # Data storage
-│   ├── samples/            # Sample data
-│   ├── embeddings/         # Vector database
-│   └── tokens/             # API tokens
-└── requirements.txt        # Dependencies
+InSightMail/
+├── 🔧 backend/                 # FastAPI backend
+│   ├── main.py                # API routes & endpoints
+│   ├── db.py                  # Database models (SQLAlchemy)
+│   ├── email_parser.py        # Gmail export processing
+│   ├── llm_adapter.py         # Ollama LLM interface
+│   ├── rag_pipeline.py        # Vector search with ChromaDB
+│   └── summarizer_chain.py    # AI classification & summarization
+├── 🎨 frontend/               # Streamlit dashboard
+│   ├── app.py                 # Main application
+│   └── components/            # Modular UI components
+├── 🧪 tests/                  # Comprehensive test suite
+├── 📊 data/                   # Data storage
+│   ├── samples/               # Sample Gmail exports
+│   ├── embeddings/            # ChromaDB vector store
+│   └── tokens/                # Authentication tokens
+├── 📋 requirements.txt        # Python dependencies
+└── 🐳 docker-compose.yml     # Container orchestration
 ```
-
-### Adding New Features
-
-1. **Email Classification Categories**: Modify `EmailCategory` enum in `db.py`
-2. **LLM Prompts**: Update prompts in `summarizer_chain.py`
-3. **Dashboard Components**: Add new components in `frontend/components/`
-4. **API Endpoints**: Add routes in `backend/main.py`
-
-### Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make changes and add tests
-4. Run tests: `pytest`
-5. Submit a pull request
 
 ## 🐛 Troubleshooting
 
-### Common Issues
+### Quick Fixes
 
-**"Ollama not responding"**
-- Ensure Ollama is running: `ollama serve`
-- Check if models are installed: `ollama list`
-- Verify the API URL: `curl http://localhost:11434/api/tags`
+| Problem | Solution |
+|---------|----------|
+| 🔴 **Ollama not responding** | Run `ollama serve` and ensure model is pulled: `ollama list` |
+| 📧 **No emails processed** | Check file format (JSON/EML/MBOX) and verify account email matches |
+| 🤖 **Classification failing** | Try `ollama pull phi3:mini` or check `ollama ps` for active models |
+| 🐌 **Slow performance** | Switch to `phi3:mini` model or close other applications |
+| 🔍 **Search not working** | Wait for embeddings to generate, check ChromaDB initialization |
 
-**"No emails found"**
-- Check file format (JSON, EML, MBOX supported)
-- Verify Gmail account email is correct
-- Ensure files contain job-related content
+### Performance Tips
 
-**"Classification not working"**
-- Check Ollama model is loaded: `ollama ps`
-- Try a different model: `ollama pull phi3:mini`
-- Check API logs for errors
+- **Start Small**: Use `phi3:mini` initially, upgrade to `mistral:7b` when comfortable
+- **Memory**: 8GB+ RAM recommended for `mistral:7b`, 4GB sufficient for `phi3:mini`
+- **Storage**: SSD improves database performance significantly
+- **Batch Size**: Adjust email processing batches based on your hardware
 
-**"Slow performance"**
-- Use smaller models (phi3:mini vs mistral:7b)
-- Reduce batch sizes in configuration
-- Close other resource-intensive applications
+### Getting Help
 
-### Performance Optimization
-
-1. **Model Selection**: Start with `phi3:mini` for speed
-2. **Batch Processing**: Adjust `MAX_EMAILS_PER_BATCH` in config
-3. **Hardware**: 8GB+ RAM recommended for larger models
-4. **Storage**: SSD recommended for database operations
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Ollama](https://ollama.ai) - Local LLM inference
-- [ChromaDB](https://www.trychroma.com/) - Vector database
-- [SentenceTransformers](https://www.sbert.net/) - Embedding models
-- [FastAPI](https://fastapi.tiangolo.com/) - Backend framework
-- [Streamlit](https://streamlit.io/) - Dashboard framework
-
-## 🤝 Support
-
-- 📧 **Issues**: [GitHub Issues](https://github.com/yourusername/InSightMail/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/InSightMail/discussions)
-- 📖 **Documentation**: [Wiki](https://github.com/yourusername/InSightMail/wiki)
+- 📋 **Check Logs**: Backend terminal shows detailed processing information
+- 🏥 **Health Check**: Visit http://localhost:8000/health for system status
+- 📚 **Sample Data**: Test with included samples first before your own emails
 
 ---
 
-**Built with ❤️ for job seekers who want to take control of their data and privacy.**
+## 🚀 What's Next?
+
+InSightMail is actively developed with upcoming features:
+
+- 📱 **Mobile App**: iOS/Android companion app
+- 🔗 **Platform Integration**: LinkedIn, Indeed, AngelList connectors  
+- 🤝 **Team Features**: Share insights with career coaches
+- 📊 **Advanced Analytics**: Predictive modeling and trend analysis
+- 🔄 **Real-time Sync**: Live Gmail integration without exports
+
+---
+
+## 📄 License & Acknowledgments
+
+**License**: MIT License - see [LICENSE](LICENSE) file
+
+**Built with**: [Ollama](https://ollama.ai) • [ChromaDB](https://www.trychroma.com/) • [FastAPI](https://fastapi.tiangolo.com/) • [Streamlit](https://streamlit.io/) • [SentenceTransformers](https://www.sbert.net/)
+
+## 💬 Community & Support
+
+- 🐛 **Report Issues**: [GitHub Issues](https://github.com/yourusername/InSightMail/issues)
+- 💭 **Join Discussion**: [GitHub Discussions](https://github.com/yourusername/InSightMail/discussions)  
+- 📖 **Documentation**: [Project Wiki](https://github.com/yourusername/InSightMail/wiki)
+
+---
+
+<div align="center">
+
+**🎯 Built with ❤️ for job seekers who value privacy and want data-driven insights into their search process**
+
+*Take control of your job search. Your emails, your insights, your success.*
+
+[⭐ Star on GitHub](https://github.com/yourusername/InSightMail) • [📧 Try the Demo](http://localhost:8501) • [🤝 Contribute](CONTRIBUTING.md)
+
+</div>
